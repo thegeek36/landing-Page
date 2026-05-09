@@ -208,7 +208,7 @@
   .srv-tag { display: inline-block; margin-top: 18px; font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase; color: var(--terracotta); border-bottom: 1px solid rgba(196,98,45,0.35); padding-bottom: 2px; }
 
   /* GALLERY */
-  #gallery { background: #0c0c0c; }
+  /* #gallery { background: #0c0c0c; }
   .gal-hdr { text-align: center; margin-bottom: 50px; }
   .gal-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: 220px 220px; gap: 10px; }
   .g-item { position: relative; overflow: hidden; cursor: pointer; }
@@ -227,8 +227,134 @@
   .g6 { background: linear-gradient(135deg, #0d1a0d, #1a4a1a, #2d8040); }
   .g-item::before { content: ''; position: absolute; inset: 0; z-index: 1; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Ccircle cx='20' cy='20' r='14' fill='none' stroke='rgba(255,255,255,0.05)' stroke-width='0.5'/%3E%3Ccircle cx='20' cy='20' r='7' fill='none' stroke='rgba(255,255,255,0.04)' stroke-width='0.5'/%3E%3C/svg%3E"); background-size: 40px 40px; pointer-events: none; }
   .g-bg { z-index: 2; }
-  .g-icon-bg { font-size: clamp(2.5rem, 5vw, 4.5rem); opacity: 0.3; position: absolute; right: 14px; top: 14px; z-index: 2; }
+  .g-icon-bg { font-size: clamp(2.5rem, 5vw, 4.5rem); opacity: 0.3; position: absolute; right: 14px; top: 14px; z-index: 2; } */
 
+  #gallery {
+  background: #0c0c0c;
+}
+
+.gal-hdr {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+/* NEW PREMIUM GRID */
+.gal-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+/* CARD */
+.g-item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 22px;
+  height: 320px;
+  background: #111;
+  border: 1px solid rgba(245,197,24,0.12);
+  transition: all 0.5s ease;
+}
+
+/* IMAGE */
+.g-bg {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s ease;
+  position: relative;
+}
+
+.g-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* HOVER EFFECT */
+.g-item:hover .g-bg {
+  transform: scale(1.08);
+}
+
+.g-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+}
+
+/* OVERLAY */
+.g-label {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.88),
+    rgba(0,0,0,0.05)
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  display: flex;
+  align-items: flex-end;
+  padding: 22px;
+  z-index: 3;
+}
+
+.g-item:hover .g-label {
+  opacity: 1;
+}
+
+/* TEXT */
+.g-ltext {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  color: var(--yellow);
+  letter-spacing: 0.5px;
+}
+
+/* REMOVE OLD ICON */
+.g-icon-bg {
+  display: none;
+}
+
+/* SCROLL ANIMATION */
+.g-item {
+  opacity: 0;
+  transform: translateY(60px);
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.g-item:nth-child(1) { animation-delay: 0.1s; }
+.g-item:nth-child(2) { animation-delay: 0.2s; }
+.g-item:nth-child(3) { animation-delay: 0.3s; }
+.g-item:nth-child(4) { animation-delay: 0.4s; }
+.g-item:nth-child(5) { animation-delay: 0.5s; }
+.g-item:nth-child(6) { animation-delay: 0.6s; }
+.g-item:nth-child(7) { animation-delay: 0.7s; }
+.g-item:nth-child(8) { animation-delay: 0.8s; }
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE */
+@media(max-width: 1100px) {
+  .gal-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media(max-width: 700px) {
+  .gal-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .g-item {
+    height: 260px;
+  }
+}
   /* TESTIMONIALS */
   #testimonials { background: #111; overflow: hidden; }
   .testi-hdr { text-align: center; margin-bottom: 52px; }
@@ -638,6 +764,137 @@
       <p class="s-sub c">Every space tells a story. Here are a few of our favourites.</p>
     </div>
     <div class="gal-grid">
+
+  <!-- 1 -->
+  <div class="g-item">
+    <div class="g-bg">
+      <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200&auto=format&fit=crop" alt="">
+    </div>
+    <div class="g-label"><div class="g-ltext">Modern Living Room</div></div>
+  </div>
+
+  <!-- 2 -->
+  <div class="g-item">
+    <div class="g-bg">
+      <img src="https://images.unsplash.com/photo-1505693538694-cf8f7c4c7b0f?q=80&w=1200&auto=format&fit=crop" alt="">
+    </div>
+    <div class="g-label"><div class="g-ltext">Luxury Bedroom</div></div>
+  </div>
+
+  <!-- 3 -->
+  <div class="g-item">
+    <div class="g-bg">
+      <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1200&auto=format&fit=crop" alt="">
+    </div>
+    <div class="g-label"><div class="g-ltext">Modular Kitchen</div></div>
+  </div>
+
+  <!-- 4 -->
+  <div class="g-item">
+    <div class="g-bg">
+      <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1200&auto=format&fit=crop" alt="">
+    </div>
+    <div class="g-label"><div class="g-ltext">Executive Office</div></div>
+  </div>
+
+  <!-- 5 -->
+  <div class="g-item">
+    <div class="g-bg">
+      <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1200&auto=format&fit=crop" alt="">
+    </div>
+    <div class="g-label"><div class="g-ltext">Restaurant Design</div></div>
+  </div>
+
+  <!-- 6 -->
+  <div class="g-item">
+    <div class="g-bg">
+      <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=1200&auto=format&fit=crop" alt="">
+    </div>
+    <div class="g-label"><div class="g-ltext">Boutique Suite</div></div>
+  </div>
+
+  <!-- 7 -->
+  <div class="g-item">
+    <div class="g-bg">
+      <img src="https://images.unsplash.com/photo-1502672023488-70e25813eb80?q=80&w=1200&auto=format&fit=crop" alt="">
+    </div>
+    <div class="g-label"><div class="g-ltext">Wooden Interiors</div></div>
+  </div>
+
+  <!-- 8 -->
+  <div class="g-item">
+    <div class="g-bg">
+      <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200&auto=format&fit=crop" alt="">
+    </div>
+    <div class="g-label"><div class="g-ltext">Luxury Dining</div></div>
+  </div>
+
+  <!-- 9 -->
+  <div class="g-item">
+    <div class="g-bg">
+      <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200&auto=format&fit=crop" alt="">
+    </div>
+    <div class="g-label"><div class="g-ltext">TV Unit Design</div></div>
+  </div>
+
+  <!-- 10 -->
+  <div class="g-item">
+    <div class="g-bg">
+      <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200&auto=format&fit=crop" alt="">
+    </div>
+    <div class="g-label"><div class="g-ltext">False Ceiling</div></div>
+  </div>
+
+  <!-- 11 -->
+  <div class="g-item">
+    <div class="g-bg">
+      <img src="https://images.unsplash.com/photo-1554995207-c18c203602cb?q=80&w=1200&auto=format&fit=crop" alt="">
+    </div>
+    <div class="g-label"><div class="g-ltext">Luxury Hall</div></div>
+  </div>
+
+  <!-- 12 -->
+  <div class="g-item">
+    <div class="g-bg">
+      <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200&auto=format&fit=crop" alt="">
+    </div>
+    <div class="g-label"><div class="g-ltext">Premium Workspace</div></div>
+  </div>
+
+  <!-- 13 -->
+  <div class="g-item">
+    <div class="g-bg">
+      <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200&auto=format&fit=crop" alt="">
+    </div>
+    <div class="g-label"><div class="g-ltext">Minimal Bedroom</div></div>
+  </div>
+
+  <!-- 14 -->
+  <div class="g-item">
+    <div class="g-bg">
+      <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1200&auto=format&fit=crop" alt="">
+    </div>
+    <div class="g-label"><div class="g-ltext">Designer Lounge</div></div>
+  </div>
+
+  <!-- 15 -->
+  <div class="g-item">
+    <div class="g-bg">
+      <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1200&auto=format&fit=crop" alt="">
+    </div>
+    <div class="g-label"><div class="g-ltext">Elegant Kitchen</div></div>
+  </div>
+
+  <!-- 16 -->
+  <div class="g-item">
+    <div class="g-bg">
+      <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200&auto=format&fit=crop" alt="">
+    </div>
+    <div class="g-label"><div class="g-ltext">Modern Decor</div></div>
+  </div>
+
+</div>
+    <!-- <div class="gal-grid">
       <div class="g-item">
         <div class="g-bg g1"><i class="fas fa-couch g-icon-bg"></i></div>
         <div class="g-label"><div class="g-ltext">Modern Living Room</div></div>
@@ -662,7 +919,7 @@
         <div class="g-bg g6"><i class="fas fa-hotel g-icon-bg"></i></div>
         <div class="g-label"><div class="g-ltext">Boutique Suite</div></div>
       </div>
-    </div>
+    </div> -->
   </div>
 </section>
 
@@ -786,14 +1043,13 @@
     <div class="foot-brand fu">
       <div class="foot-logo">Adwatika</div>
       <div class="foot-sub">Interio & Decors</div>
-      <p>Born in the heart of Odisha, shaped by the rich tradition of Pattachitra and Sambalpuri craft — we bring a personal touch to every space.</p>
+      <p>Crafting interiors that blend elegance, comfort, and culture — Adwatika transforms homes into timeless spaces with thoughtful design, modern aesthetics, and handcrafted details inspired by Odisha’s artistic heritage.</p>
       <p class="foot-motto">"Shaping Dreams into Reality, One Space at a Time."</p>
       <div class="foot-socials">
-        <a href="#" class="soc"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.instagram.com/adwaitika_id/" class="soc"><i class="fab fa-instagram"></i></a>
         <a href="#" class="soc"><i class="fab fa-facebook"></i></a>
         <a href="#" class="soc"><i class="fab fa-pinterest"></i></a>
         <a href="#" class="soc"><i class="fab fa-youtube"></i></a>
-        <a href="#" class="soc"><i class="fab fa-houzz"></i></a>
       </div>
     </div>
     <div class="fu">
@@ -832,15 +1088,16 @@
   </div>
   <div class="patta-border"></div>
   <div class="foot-bottom">
-    <p>© 2025 Adwatika Interio & Decors. All rights reserved.</p>
-    <span>Designed with ♥ in Odisha</span>
-  </div>
+    <p>© <span id="year"></span> Adwatika Interio & Decors. All rights reserved.</p>
+    <span>Designed with <span style="color:red;">♥</span> in Odisha</span> 
+ </div>
 </footer>
 
 <script>
 // NAVBAR SCROLL
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60));
+document.getElementById("year").textContent = new Date().getFullYear();
 
 // HAMBURGER
 const hbg = document.getElementById('hbg');
