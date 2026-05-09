@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Adwatika Interio & Decors</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+  :root {
+    --yellow: #F5C518;
+    --gold: #D4A017;
+    --maroon: #6B1A1A;
+    --maroon-light: #8B2E2E;
+    --terracotta: #C4622D;
+    --terracotta-light: #E07B45;
+    --black: #0F0F0F;
+    --off-white: #FAF6F0;
+    --cream: #F5EDD8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Raleway', sans-serif; background: var(--black); color: var(--off-white); overflow-x: hidden; }
+
+  /* PATTACHITRA BORDER */
+  .patta-border {
+    width: 100%; height: 22px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='22'%3E%3Crect width='80' height='22' fill='%236B1A1A'/%3E%3Ccircle cx='11' cy='11' r='6' fill='none' stroke='%23F5C518' stroke-width='1.5'/%3E%3Ccircle cx='11' cy='11' r='2.5' fill='%23F5C518'/%3E%3Ccircle cx='31' cy='11' r='6' fill='none' stroke='%23F5C518' stroke-width='1.5'/%3E%3Ccircle cx='31' cy='11' r='2.5' fill='%23F5C518'/%3E%3Ccircle cx='51' cy='11' r='6' fill='none' stroke='%23F5C518' stroke-width='1.5'/%3E%3Ccircle cx='51' cy='11' r='2.5' fill='%23F5C518'/%3E%3Ccircle cx='71' cy='11' r='6' fill='none' stroke='%23F5C518' stroke-width='1.5'/%3E%3Ccircle cx='71' cy='11' r='2.5' fill='%23F5C518'/%3E%3Cline x1='17' y1='11' x2='25' y2='11' stroke='%23F5C518' stroke-width='1'/%3E%3Cline x1='37' y1='11' x2='45' y2='11' stroke='%23F5C518' stroke-width='1'/%3E%3Cline x1='57' y1='11' x2='65' y2='11' stroke='%23F5C518' stroke-width='1'/%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+  }
+  .patta-border-dark {
+    width: 100%; height: 22px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='22'%3E%3Crect width='80' height='22' fill='%230F0F0F'/%3E%3Ccircle cx='11' cy='11' r='6' fill='none' stroke='%23C4622D' stroke-width='1.5'/%3E%3Ccircle cx='11' cy='11' r='2.5' fill='%23C4622D'/%3E%3Ccircle cx='31' cy='11' r='6' fill='none' stroke='%23C4622D' stroke-width='1.5'/%3E%3Ccircle cx='31' cy='11' r='2.5' fill='%23C4622D'/%3E%3Ccircle cx='51' cy='11' r='6' fill='none' stroke='%23C4622D' stroke-width='1.5'/%3E%3Ccircle cx='51' cy='11' r='2.5' fill='%23C4622D'/%3E%3Ccircle cx='71' cy='11' r='6' fill='none' stroke='%23C4622D' stroke-width='1.5'/%3E%3Ccircle cx='71' cy='11' r='2.5' fill='%23C4622D'/%3E%3Cline x1='17' y1='11' x2='25' y2='11' stroke='%23C4622D' stroke-width='1'/%3E%3Cline x1='37' y1='11' x2='45' y2='11' stroke='%23C4622D' stroke-width='1'/%3E%3Cline x1='57' y1='11' x2='65' y2='11' stroke='%23C4622D' stroke-width='1'/%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+  }
+
+  /* NAVBAR */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 1000;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 52px;
+    background: rgba(15,15,15,0.93);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(212,160,23,0.15);
+    transition: all 0.3s;
+  }
+  nav.scrolled { padding: 12px 52px; border-bottom-color: rgba(212,160,23,0.4); }
+  .nav-logo { display: flex; flex-direction: column; line-height: 1.1; cursor: pointer; }
+  .nav-logo .nl1 { font-family: 'Playfair Display', serif; font-size: 1.45rem; font-weight: 700; color: var(--yellow); letter-spacing: 1px; }
+  .nav-logo .nl2 { font-size: 0.6rem; letter-spacing: 4px; color: var(--terracotta); text-transform: uppercase; }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a { color: var(--off-white); text-decoration: none; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; position: relative; transition: color 0.3s; }
+  .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--yellow); transition: width 0.3s; }
+  .nav-links a:hover { color: var(--yellow); }
+  .nav-links a:hover::after { width: 100%; }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 1100; }
+  .hamburger span { display: block; width: 26px; height: 2px; background: var(--yellow); transition: all 0.3s; border-radius: 1px; }
+  .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+  .mobile-menu { display: none; position: fixed; inset: 0; background: rgba(10,10,10,0.98); z-index: 1050; flex-direction: column; align-items: center; justify-content: center; gap: 30px; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { color: var(--off-white); text-decoration: none; font-family: 'Playfair Display', serif; font-size: 1.9rem; transition: color 0.3s; }
+  .mobile-menu a:hover { color: var(--yellow); }
+
+  /* FLOATING BTNS */
+  .float-btns { position: fixed; right: 18px; top: 50%; transform: translateY(-50%); z-index: 900; display: flex; flex-direction: column; gap: 10px; }
+  .float-btn { width: 46px; height: 46px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; text-decoration: none; font-size: 1.1rem; box-shadow: 0 4px 18px rgba(0,0,0,0.45); border: 2px solid transparent; position: relative; }
+  .float-btn:hover { transform: scale(1.18); box-shadow: 0 8px 28px rgba(0,0,0,0.5); }
+  .float-btn.wp { background: #25D366; color: #fff; }
+  .float-btn.mail { background: var(--maroon); color: var(--yellow); border-color: rgba(212,160,23,0.4); }
+  .float-btn.map { background: var(--terracotta); color: #fff; }
+  .float-btn .tip { position: absolute; right: 54px; background: var(--black); color: var(--yellow); padding: 4px 10px; border-radius: 4px; font-size: 0.7rem; letter-spacing: 1px; white-space: nowrap; border: 1px solid rgba(212,160,23,0.25); opacity: 0; pointer-events: none; transition: opacity 0.25s; font-family: 'Raleway', sans-serif; }
+  .float-btn:hover .tip { opacity: 1; }
+
+  /* HERO */
+  #home { min-height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .hero-bg { position: absolute; inset: 0; background: linear-gradient(135deg, #0F0F0F 0%, #1a0808 40%, #2d1212 70%, #0F0F0F 100%); }
+  .hero-geo { position: absolute; inset: 0; opacity: 0.05; background-image: repeating-linear-gradient(45deg, var(--terracotta) 0, var(--terracotta) 1px, transparent 0, transparent 50%), repeating-linear-gradient(-45deg, var(--yellow) 0, var(--yellow) 1px, transparent 0, transparent 50%); background-size: 28px 28px; }
+  .hero-mandala-r { position: absolute; right: -80px; top: 50%; transform: translateY(-50%); width: 640px; height: 640px; opacity: 0.07; pointer-events: none; }
+  .hero-mandala-l { position: absolute; left: -140px; bottom: -140px; width: 480px; height: 480px; opacity: 0.05; pointer-events: none; }
+  .hero-content { position: relative; z-index: 2; text-align: center; max-width: 860px; padding: 0 24px; }
+  .hero-tag { display: inline-block; font-size: 0.7rem; letter-spacing: 5px; text-transform: uppercase; color: var(--terracotta); margin-bottom: 22px; border: 1px solid rgba(196,98,45,0.35); padding: 6px 22px; border-radius: 30px; }
+  .hero-h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 7vw, 5.5rem); font-weight: 700; line-height: 1.1; color: var(--off-white); margin-bottom: 18px; }
+  .hero-h1 span { color: var(--yellow); }
+  .hero-motto { font-size: clamp(0.9rem, 2vw, 1.05rem); color: rgba(250,246,240,0.6); letter-spacing: 2px; font-style: italic; margin-bottom: 44px; font-family: 'Playfair Display', serif; }
+  .hero-cta { display: inline-flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+  .btn-primary { background: var(--yellow); color: var(--black); padding: 14px 38px; border: none; cursor: pointer; font-family: 'Raleway', sans-serif; font-weight: 700; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; display: inline-block; transition: all 0.3s; clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%); }
+  .btn-primary:hover { background: var(--gold); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(245,197,24,0.3); }
+  .btn-outline { background: transparent; color: var(--off-white); padding: 13px 38px; border: 1px solid rgba(250,246,240,0.28); cursor: pointer; font-family: 'Raleway', sans-serif; font-weight: 600; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; display: inline-block; transition: all 0.3s; clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%); }
+  .btn-outline:hover { border-color: var(--yellow); color: var(--yellow); }
+  .scroll-hint { position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 6px; color: rgba(250,246,240,0.3); font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase; animation: bobble 2s ease-in-out infinite; }
+  @keyframes bobble { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} }
+
+  /* SECTIONS */
+  section { padding: 96px 0; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+  .s-tag { font-size: 0.68rem; letter-spacing: 5px; text-transform: uppercase; color: var(--terracotta); display: block; margin-bottom: 10px; }
+  .s-title { font-family: 'Playfair Display', serif; font-size: clamp(1.9rem, 4vw, 2.9rem); font-weight: 700; color: var(--off-white); margin-bottom: 14px; line-height: 1.2; }
+  .s-title span { color: var(--yellow); }
+  .s-line { width: 56px; height: 2px; background: linear-gradient(90deg, var(--terracotta), var(--yellow)); margin-bottom: 22px; }
+  .s-line.c { margin: 0 auto 22px; }
+  .s-sub { color: rgba(250,246,240,0.58); font-size: 0.95rem; line-height: 1.85; max-width: 600px; }
+  .s-sub.c { margin: 0 auto; text-align: center; }
+
+  /* ABOUT */
+  #about { background: #111; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .about-vis { position: relative; }
+  .about-box { aspect-ratio: 4/5; background: linear-gradient(135deg, var(--maroon) 0%, var(--terracotta) 55%, var(--gold) 100%); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+  .about-box::before { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Ccircle cx='50' cy='50' r='46' fill='none' stroke='rgba(245,197,24,0.12)' stroke-width='1'/%3E%3Ccircle cx='50' cy='50' r='32' fill='none' stroke='rgba(245,197,24,0.09)' stroke-width='1'/%3E%3Ccircle cx='50' cy='50' r='18' fill='none' stroke='rgba(245,197,24,0.08)' stroke-width='1'/%3E%3Cpath d='M50,4L56,22L74,22L60,34L66,52L50,40L34,52L40,34L26,22L44,22Z' fill='none' stroke='rgba(245,197,24,0.18)' stroke-width='0.8'/%3E%3C/svg%3E"); background-size: 100px 100px; }
+  .about-box-inner { position: absolute; inset: 22px; border: 1px solid rgba(245,197,24,0.22); display: flex; align-items: center; justify-content: center; }
+  .about-badge { position: absolute; bottom: -18px; right: -18px; width: 108px; height: 108px; background: var(--yellow); border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 8px 28px rgba(212,160,23,0.4); }
+  .about-badge .bn { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--black); line-height: 1; }
+  .about-badge .bl { font-size: 0.58rem; letter-spacing: 2px; text-transform: uppercase; color: var(--maroon); font-weight: 700; }
+  .about-text p { color: rgba(250,246,240,0.62); line-height: 1.9; margin-bottom: 18px; font-size: 0.95rem; }
+  .about-vals { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 28px; }
+  .av { display: flex; align-items: flex-start; gap: 11px; padding: 16px; border: 1px solid rgba(212,160,23,0.12); background: rgba(212,160,23,0.03); }
+  .av i { color: var(--yellow); font-size: 1rem; margin-top: 3px; flex-shrink: 0; }
+  .av strong { color: var(--off-white); font-size: 0.88rem; display: block; margin-bottom: 3px; }
+  .av p { font-size: 0.8rem; color: rgba(250,246,240,0.55); line-height: 1.5; margin: 0; }
+
+  /* KPI */
+  #kpi { background: var(--maroon); position: relative; overflow: hidden; }
+  .kpi-pat { position: absolute; inset: 0; opacity: 0.07; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56'%3E%3Crect width='56' height='56' fill='none'/%3E%3Cpath d='M28,0L56,28L28,56L0,28Z' fill='none' stroke='%23F5C518' stroke-width='1'/%3E%3Ccircle cx='28' cy='28' r='10' fill='none' stroke='%23F5C518' stroke-width='0.8'/%3E%3C/svg%3E"); background-size: 56px 56px; }
+  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; position: relative; z-index: 1; }
+  .kpi-card { padding: 48px 28px; text-align: center; border: 1px solid rgba(245,197,24,0.1); background: rgba(0,0,0,0.14); transition: all 0.35s; position: relative; overflow: hidden; }
+  .kpi-card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--yellow); transition: width 0.4s; }
+  .kpi-card:hover { background: rgba(0,0,0,0.28); transform: translateY(-5px); }
+  .kpi-card:hover::after { width: 100%; }
+  .kpi-ico { font-size: 1.9rem; color: var(--yellow); margin-bottom: 14px; }
+  .kpi-num { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; color: var(--yellow); line-height: 1; margin-bottom: 8px; }
+  .kpi-lbl { font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; color: rgba(250,246,240,0.65); }
+
+  /* PROCESS */
+  #process { background: #0c0c0c; }
+  .proc-hdr { text-align: center; margin-bottom: 70px; }
+  .proc-steps { display: flex; gap: 0; position: relative; }
+  .proc-steps::before { content: ''; position: absolute; top: 53px; left: 10%; right: 10%; height: 1px; background: linear-gradient(90deg, transparent, var(--terracotta), var(--yellow), var(--terracotta), transparent); z-index: 0; }
+  .proc-step { flex: 1; text-align: center; padding: 0 14px; position: relative; z-index: 1; }
+  .step-circ { width: 108px; height: 108px; border-radius: 50%; margin: 0 auto 26px; display: flex; flex-direction: column; align-items: center; justify-content: center; background: var(--black); border: 2px solid var(--terracotta); position: relative; transition: all 0.4s; }
+  .step-circ::before { content: ''; position: absolute; inset: -7px; border-radius: 50%; border: 1px dashed rgba(245,197,24,0.22); transition: transform 7s linear; }
+  .proc-step:hover .step-circ::before { transform: rotate(360deg); }
+  .proc-step:hover .step-circ { border-color: var(--yellow); box-shadow: 0 0 30px rgba(245,197,24,0.18); }
+  .step-n { font-family: 'Playfair Display', serif; font-size: 0.75rem; color: var(--terracotta); letter-spacing: 1px; font-weight: 700; }
+  .step-ic { font-size: 1.4rem; color: var(--yellow); }
+  .step-t { font-family: 'Playfair Display', serif; font-size: 0.98rem; color: var(--off-white); margin-bottom: 9px; }
+  .step-d { font-size: 0.8rem; color: rgba(250,246,240,0.52); line-height: 1.7; }
+
+  /* SERVICES */
+  #services { background: #111; }
+  .srv-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 56px; }
+  .srv-card { background: #0F0F0F; border: 1px solid rgba(212,160,23,0.1); padding: 38px 28px; position: relative; overflow: hidden; transition: all 0.4s; clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 18px 100%, 0 100%); }
+  .srv-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--maroon), var(--terracotta), var(--yellow)); transform: scaleX(0); transform-origin: left; transition: transform 0.4s; }
+  .srv-card:hover { border-color: rgba(212,160,23,0.28); transform: translateY(-6px); }
+  .srv-card:hover::before { transform: scaleX(1); }
+  .srv-ico { width: 60px; height: 60px; border-radius: 50%; background: rgba(107,26,26,0.28); border: 1px solid rgba(196,98,45,0.28); display: flex; align-items: center; justify-content: center; margin-bottom: 22px; transition: all 0.3s; }
+  .srv-card:hover .srv-ico { border-color: var(--yellow); background: rgba(107,26,26,0.45); }
+  .srv-ico i { font-size: 1.3rem; color: var(--yellow); }
+  .srv-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--off-white); margin-bottom: 11px; }
+  .srv-desc { font-size: 0.82rem; color: rgba(250,246,240,0.52); line-height: 1.75; }
+  .srv-tag { display: inline-block; margin-top: 18px; font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase; color: var(--terracotta); border-bottom: 1px solid rgba(196,98,45,0.35); padding-bottom: 2px; }
+
+  /* GALLERY */
+  #gallery { background: #0c0c0c; }
+  .gal-hdr { text-align: center; margin-bottom: 50px; }
+  .gal-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: 220px 220px; gap: 10px; }
+  .g-item { position: relative; overflow: hidden; cursor: pointer; }
+  .g-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+  .g-item:nth-child(4) { grid-column: span 2; }
+  .g-bg { width: 100%; height: 100%; transition: transform 0.55s ease; display: flex; align-items: center; justify-content: center; position: relative; }
+  .g-item:hover .g-bg { transform: scale(1.07); }
+  .g-label { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(107,26,26,0.88) 0%, transparent 55%); opacity: 0; transition: opacity 0.4s; display: flex; align-items: flex-end; padding: 20px; z-index: 3; }
+  .g-item:hover .g-label { opacity: 1; }
+  .g-ltext { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--yellow); }
+  .g1 { background: linear-gradient(135deg, #2d1010, #6b1a1a, #c4622d); }
+  .g2 { background: linear-gradient(135deg, #1a1a0d, #4a3800, #d4a017); }
+  .g3 { background: linear-gradient(135deg, #0d1a1a, #1a4a4a, #2d7070); }
+  .g4 { background: linear-gradient(135deg, #1a0d1a, #4a1a4a, #8b2e8b); }
+  .g5 { background: linear-gradient(135deg, #1a1a0d, #3d3d1a, #c4a830); }
+  .g6 { background: linear-gradient(135deg, #0d1a0d, #1a4a1a, #2d8040); }
+  .g-item::before { content: ''; position: absolute; inset: 0; z-index: 1; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Ccircle cx='20' cy='20' r='14' fill='none' stroke='rgba(255,255,255,0.05)' stroke-width='0.5'/%3E%3Ccircle cx='20' cy='20' r='7' fill='none' stroke='rgba(255,255,255,0.04)' stroke-width='0.5'/%3E%3C/svg%3E"); background-size: 40px 40px; pointer-events: none; }
+  .g-bg { z-index: 2; }
+  .g-icon-bg { font-size: clamp(2.5rem, 5vw, 4.5rem); opacity: 0.3; position: absolute; right: 14px; top: 14px; z-index: 2; }
+
+  /* TESTIMONIALS */
+  #testimonials { background: #111; overflow: hidden; }
+  .testi-hdr { text-align: center; margin-bottom: 52px; }
+  .testi-wrap { overflow: hidden; position: relative; }
+  .testi-wrap::before, .testi-wrap::after { content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 10; pointer-events: none; }
+  .testi-wrap::before { left: 0; background: linear-gradient(90deg, #111, transparent); }
+  .testi-wrap::after { right: 0; background: linear-gradient(-90deg, #111, transparent); }
+  .testi-track { display: flex; gap: 26px; width: max-content; animation: scrollCards 32s linear infinite; }
+  .testi-track:hover { animation-play-state: paused; }
+  @keyframes scrollCards { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+  .t-card { width: 370px; flex-shrink: 0; background: #0F0F0F; border: 1px solid rgba(212,160,23,0.1); padding: 34px 30px; position: relative; }
+  .t-card::before { content: '\201C'; position: absolute; top: 14px; left: 26px; font-family: 'Playfair Display', serif; font-size: 3.5rem; color: rgba(196,98,45,0.22); line-height: 1; }
+  .t-stars { display: flex; gap: 4px; margin-bottom: 14px; }
+  .t-stars i { color: var(--yellow); font-size: 0.78rem; }
+  .t-text { font-size: 0.88rem; color: rgba(250,246,240,0.62); line-height: 1.85; margin-bottom: 22px; font-style: italic; }
+  .t-author { display: flex; align-items: center; gap: 13px; }
+  .t-av { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.05rem; color: var(--black); flex-shrink: 0; }
+  .t-name { font-weight: 600; font-size: 0.88rem; color: var(--off-white); }
+  .t-role { font-size: 0.7rem; color: var(--terracotta); letter-spacing: 1px; }
+
+  /* BOOKING */
+  #booking { background: var(--maroon); position: relative; overflow: hidden; padding: 100px 0; }
+  .bk-pat { position: absolute; inset: 0; opacity: 0.06; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90'%3E%3Ccircle cx='45' cy='45' r='42' fill='none' stroke='%23F5C518' stroke-width='0.8'/%3E%3Ccircle cx='45' cy='45' r='28' fill='none' stroke='%23F5C518' stroke-width='0.5'/%3E%3Ccircle cx='45' cy='45' r='14' fill='none' stroke='%23F5C518' stroke-width='0.5'/%3E%3Cpath d='M45,3L50,18L65,18L53,27L58,43L45,34L32,43L37,27L25,18L40,18Z' fill='none' stroke='%23F5C518' stroke-width='0.5'/%3E%3C/svg%3E"); background-size: 90px 90px; }
+  .bk-inner { position: relative; z-index: 1; text-align: center; }
+  .bk-title { font-family: 'Playfair Display', serif; font-size: clamp(1.9rem, 4vw, 2.9rem); font-weight: 700; color: var(--yellow); margin-bottom: 14px; }
+  .bk-sub { color: rgba(250,246,240,0.68); font-size: 0.95rem; margin-bottom: 48px; line-height: 1.75; max-width: 520px; margin-left: auto; margin-right: auto; }
+  .bk-box { background: rgba(0,0,0,0.22); border: 1px solid rgba(245,197,24,0.18); border-radius: 4px; padding: 52px 40px; max-width: 540px; margin: 0 auto; }
+  .bk-ico { font-size: 3rem; opacity: 0.35; margin-bottom: 20px; }
+  .bk-box p { color: rgba(250,246,240,0.62); font-size: 0.9rem; line-height: 1.75; max-width: 340px; margin: 0 auto 28px; }
+  .btn-book { display: inline-block; background: var(--yellow); color: var(--black); padding: 15px 44px; font-weight: 700; font-size: 0.86rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; cursor: pointer; border: none; font-family: 'Raleway', sans-serif; transition: all 0.3s; clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%); }
+  .btn-book:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+  .bk-perks { display: flex; gap: 20px; justify-content: center; font-size: 0.75rem; color: rgba(250,246,240,0.38); margin-top: 20px; flex-wrap: wrap; }
+  .bk-note { font-size: 0.68rem; color: rgba(250,246,240,0.28); margin-top: 18px; letter-spacing: 1px; }
+
+  /* SAMBALPURI WAVE DIVIDER */
+  .wave-div { width: 100%; height: 38px; }
+  .wave-div svg { width: 100%; height: 100%; }
+
+  /* FOOTER */
+  footer { background: #080808; padding: 80px 0 0; border-top: 1px solid rgba(212,160,23,0.1); }
+  .foot-grid { max-width: 1200px; margin: 0 auto; padding: 0 32px 64px; display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 56px; }
+  .foot-logo { font-family: 'Playfair Display', serif; font-size: 1.55rem; font-weight: 700; color: var(--yellow); margin-bottom: 5px; }
+  .foot-sub { font-size: 0.58rem; letter-spacing: 4px; text-transform: uppercase; color: var(--terracotta); margin-bottom: 18px; }
+  .foot-brand p { font-size: 0.83rem; color: rgba(250,246,240,0.48); line-height: 1.8; margin-bottom: 16px; }
+  .foot-motto { font-family: 'Playfair Display', serif; font-style: italic; font-size: 0.88rem; color: rgba(212,160,23,0.55); border-left: 2px solid var(--terracotta); padding-left: 13px; }
+  .foot-socials { display: flex; gap: 10px; margin-top: 22px; }
+  .soc { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(212,160,23,0.18); display: flex; align-items: center; justify-content: center; color: rgba(250,246,240,0.45); font-size: 0.88rem; text-decoration: none; transition: all 0.3s; }
+  .soc:hover { border-color: var(--yellow); color: var(--yellow); background: rgba(212,160,23,0.07); }
+  .fc-title { font-family: 'Playfair Display', serif; font-size: 0.98rem; color: var(--off-white); margin-bottom: 22px; position: relative; padding-bottom: 11px; }
+  .fc-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 28px; height: 1px; background: var(--terracotta); }
+  .fc-links { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+  .fc-links a { color: rgba(250,246,240,0.47); text-decoration: none; font-size: 0.83rem; transition: color 0.3s; display: flex; align-items: center; gap: 7px; }
+  .fc-links a::before { content: '›'; color: var(--terracotta); }
+  .fc-links a:hover { color: var(--yellow); }
+  .fc-contacts { display: flex; flex-direction: column; gap: 14px; }
+  .fcc { display: flex; gap: 11px; align-items: flex-start; }
+  .fcc i { color: var(--terracotta); font-size: 0.88rem; margin-top: 3px; flex-shrink: 0; }
+  .fcc span { font-size: 0.8rem; color: rgba(250,246,240,0.47); line-height: 1.65; }
+  .foot-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding: 22px 32px; max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+  .foot-bottom p, .foot-bottom span { font-size: 0.73rem; color: rgba(250,246,240,0.22); }
+
+  /* ANIMATIONS */
+  .fu { opacity: 0; transform: translateY(36px); transition: opacity 0.7s, transform 0.7s; }
+  .fr { opacity: 0; transform: translateX(-36px); transition: opacity 0.7s, transform 0.7s; }
+  .fl { opacity: 0; transform: translateX(36px); transition: opacity 0.7s, transform 0.7s; }
+  .vis { opacity: 1 !important; transform: none !important; }
+  .s1 { transition-delay: 0.08s; } .s2 { transition-delay: 0.16s; } .s3 { transition-delay: 0.24s; } .s4 { transition-delay: 0.32s; } .s5 { transition-delay: 0.40s; } .s6 { transition-delay: 0.48s; }
+
+  /* RESPONSIVE */
+  @media (max-width: 1024px) {
+    .kpi-grid { grid-template-columns: repeat(2,1fr); }
+    .srv-grid { grid-template-columns: repeat(2,1fr); }
+    .foot-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .gal-grid { grid-template-columns: repeat(3,1fr); grid-template-rows: 200px 200px; }
+    .g-item:nth-child(1) { grid-column: span 1; grid-row: span 2; }
+    .g-item:nth-child(4) { grid-column: span 1; }
+    nav { padding: 16px 28px; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+  }
+  @media (max-width: 768px) {
+    .about-grid { grid-template-columns: 1fr; gap: 44px; }
+    .proc-steps { flex-direction: column; align-items: center; gap: 30px; }
+    .proc-steps::before { display: none; }
+    .srv-grid { grid-template-columns: 1fr; }
+    .gal-grid { grid-template-columns: 1fr 1fr; grid-template-rows: repeat(4,170px); }
+    .g-item:nth-child(1) { grid-column: span 2; grid-row: span 1; height: 200px; }
+    .g-item:nth-child(4) { grid-column: span 2; }
+    .foot-grid { grid-template-columns: 1fr; gap: 34px; }
+    .foot-bottom { flex-direction: column; gap: 8px; text-align: center; }
+    .about-vals { grid-template-columns: 1fr; }
+    section { padding: 68px 0; }
+    .float-btns { right: 10px; }
+  }
+  @media (max-width: 480px) {
+    .gal-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+    .g-item { height: 175px !important; grid-column: span 1 !important; grid-row: span 1 !important; }
+    .kpi-grid { grid-template-columns: 1fr 1fr; }
+    .hero-cta { flex-direction: column; align-items: center; }
+    .t-card { width: 300px; }
+    .bk-perks { flex-direction: column; align-items: center; gap: 6px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="nav">
+  <div class="nav-logo" onclick="scrollTo(0,0)">
+    <span class="nl1">Adwatika</span>
+    <span class="nl2">Interio & Decors</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#booking">Book</a></li>
+  </ul>
+  <div class="hamburger" id="hbg"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="mobile-menu" id="mm">
+  <a href="#home" class="mml">Home</a>
+  <a href="#about" class="mml">About</a>
+  <a href="#process" class="mml">Process</a>
+  <a href="#services" class="mml">Services</a>
+  <a href="#gallery" class="mml">Gallery</a>
+  <a href="#testimonials" class="mml">Reviews</a>
+  <a href="#booking" class="mml">Book a Session</a>
+</div>
+
+<!-- FLOATING CONTACT BUTTONS -->
+<div class="float-btns">
+  <a href="https://wa.me/919999999999" target="_blank" class="float-btn wp">
+    <i class="fab fa-whatsapp"></i>
+    <span class="tip">WhatsApp</span>
+  </a>
+  <a href="mailto:hello@adwatikainterio.com" class="float-btn mail">
+    <i class="fas fa-envelope"></i>
+    <span class="tip">Email Us</span>
+  </a>
+  <a href="https://maps.google.com/?q=Adwatika+Interio+Decors+Bhubaneswar" target="_blank" class="float-btn map">
+    <i class="fas fa-map-marker-alt"></i>
+    <span class="tip">Find Us</span>
+  </a>
+</div>
+
+<!-- ═══ HERO ═══ -->
+<section id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-geo"></div>
+
+  <!-- Mandala Right -->
+  <svg class="hero-mandala-r" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="200" cy="200" r="194" fill="none" stroke="#F5C518" stroke-width="0.5"/>
+    <circle cx="200" cy="200" r="168" fill="none" stroke="#C4622D" stroke-width="0.5"/>
+    <circle cx="200" cy="200" r="138" fill="none" stroke="#F5C518" stroke-width="0.5"/>
+    <circle cx="200" cy="200" r="108" fill="none" stroke="#C4622D" stroke-width="0.5"/>
+    <circle cx="200" cy="200" r="78" fill="none" stroke="#F5C518" stroke-width="0.5"/>
+    <circle cx="200" cy="200" r="48" fill="none" stroke="#C4622D" stroke-width="0.5"/>
+    <circle cx="200" cy="200" r="18" fill="none" stroke="#F5C518" stroke-width="1"/>
+    <g stroke="#F5C518" stroke-width="0.4" fill="none">
+      <line x1="200" y1="6" x2="200" y2="394"/>
+      <line x1="6" y1="200" x2="394" y2="200"/>
+      <line x1="62" y1="62" x2="338" y2="338"/>
+      <line x1="338" y1="62" x2="62" y2="338"/>
+      <line x1="22" y1="130" x2="378" y2="270"/>
+      <line x1="130" y1="22" x2="270" y2="378"/>
+      <line x1="378" y1="130" x2="22" y2="270"/>
+      <line x1="270" y1="22" x2="130" y2="378"/>
+    </g>
+    <g fill="#C4622D" opacity="0.55">
+      <circle cx="200" cy="12" r="4"/><circle cx="200" cy="388" r="4"/>
+      <circle cx="12" cy="200" r="4"/><circle cx="388" cy="200" r="4"/>
+      <circle cx="62" cy="62" r="4"/><circle cx="338" cy="62" r="4"/>
+      <circle cx="62" cy="338" r="4"/><circle cx="338" cy="338" r="4"/>
+    </g>
+    <path d="M200,62 L215,92 L245,92 L221,112 L231,142 L200,122 L169,142 L179,112 L155,92 L185,92Z" fill="none" stroke="#F5C518" stroke-width="0.9"/>
+  </svg>
+
+  <!-- Mandala Left -->
+  <svg class="hero-mandala-l" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="150" cy="150" r="144" fill="none" stroke="#C4622D" stroke-width="0.5"/>
+    <circle cx="150" cy="150" r="108" fill="none" stroke="#F5C518" stroke-width="0.5"/>
+    <circle cx="150" cy="150" r="72" fill="none" stroke="#C4622D" stroke-width="0.5"/>
+    <circle cx="150" cy="150" r="36" fill="none" stroke="#F5C518" stroke-width="0.5"/>
+    <g stroke="#C4622D" stroke-width="0.4" fill="none">
+      <line x1="150" y1="6" x2="150" y2="294"/>
+      <line x1="6" y1="150" x2="294" y2="150"/>
+      <line x1="46" y1="46" x2="254" y2="254"/>
+      <line x1="254" y1="46" x2="46" y2="254"/>
+    </g>
+  </svg>
+
+  <div class="hero-content">
+    <div class="hero-tag fu">✦ Odisha's Premier Interior Studio ✦</div>
+    <h1 class="hero-h1 fu">Shaping <span>Dreams</span><br/>into Reality</h1>
+    <p class="hero-motto fu">Giving a personal touch to every work</p>
+    <div class="hero-cta fu">
+      <a href="#booking" class="btn-primary">Book a Session</a>
+      <a href="#gallery" class="btn-outline">View Our Work</a>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <i class="fas fa-chevron-down"></i>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<div class="patta-border"></div>
+
+<!-- ═══ ABOUT ═══ -->
+<section id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-vis fr">
+        <div class="about-box">
+          <div class="about-box-inner">
+            <svg viewBox="0 0 200 260" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:55%;opacity:0.5">
+              <rect x="20" y="60" width="160" height="160" rx="2" stroke="#F5C518" stroke-width="1.5" fill="rgba(107,26,26,0.2)"/>
+              <rect x="35" y="75" width="130" height="130" rx="1" stroke="#C4622D" stroke-width="0.8"/>
+              <line x1="20" y1="200" x2="180" y2="200" stroke="#F5C518" stroke-width="1.5"/>
+              <rect x="70" y="150" width="60" height="70" fill="rgba(212,160,23,0.2)" stroke="#D4A017" stroke-width="1"/>
+              <rect x="80" y="160" width="18" height="25" fill="none" stroke="#D4A017" stroke-width="0.8"/>
+              <rect x="102" y="160" width="18" height="25" fill="none" stroke="#D4A017" stroke-width="0.8"/>
+              <rect x="40" y="95" width="50" height="40" fill="rgba(196,98,45,0.2)" stroke="#C4622D" stroke-width="0.8"/>
+              <line x1="65" y1="95" x2="65" y2="135" stroke="#C4622D" stroke-width="0.5"/>
+              <line x1="40" y1="115" x2="90" y2="115" stroke="#C4622D" stroke-width="0.5"/>
+              <rect x="110" y="95" width="50" height="40" fill="rgba(107,26,26,0.2)" stroke="#6B1A1A" stroke-width="0.8"/>
+              <circle cx="135" cy="115" r="10" fill="none" stroke="#F5C518" stroke-width="0.8"/>
+              <circle cx="135" cy="115" r="4" fill="#F5C518" opacity="0.4"/>
+              <path d="M55,60 L55,30 L85,10 L115,30 L115,60" stroke="#F5C518" stroke-width="1" fill="none"/>
+              <circle cx="85" cy="10" r="5" fill="#C4622D"/>
+              <path d="M20,200 L10,220 M180,200 L190,220" stroke="#D4A017" stroke-width="1.5"/>
+              <g fill="none" stroke="rgba(245,197,24,0.28)" stroke-width="0.5">
+                <path d="M20,60 Q30,50 40,60 Q50,50 60,60 Q70,50 80,60 Q90,50 100,60 Q110,50 120,60 Q130,50 140,60 Q150,50 160,60 Q170,50 180,60"/>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <div class="about-badge">
+          <span class="bn">10+</span>
+          <span class="bl">Years</span>
+        </div>
+      </div>
+
+      <div class="fl">
+        <span class="s-tag">Who We Are</span>
+        <h2 class="s-title">Crafting Spaces with <span>Soul</span></h2>
+        <div class="s-line"></div>
+        <p class="about-text-p" style="color:rgba(250,246,240,0.62);line-height:1.9;margin-bottom:16px;font-size:0.95rem">At Adwatika Interio & Decors, we believe every space is a canvas waiting to tell your story. Rooted in the rich cultural heritage of Odisha, we blend Pattachitra artistry with contemporary design to create interiors uniquely yours.</p>
+        <p style="color:rgba(250,246,240,0.62);line-height:1.9;margin-bottom:0;font-size:0.95rem">Our philosophy: <em>give a personal touch to every work</em>. We don't just design rooms — we craft experiences that resonate with who you are and how you live.</p>
+        <div class="about-vals" style="margin-top:28px">
+          <div class="av s1 fu"><i class="fas fa-paint-brush"></i><div><strong>Heritage Inspired</strong><p>Pattachitra & Sambalpuri motifs woven into modern design</p></div></div>
+          <div class="av s2 fu"><i class="fas fa-heart"></i><div><strong>Personal Touch</strong><p>Every project reflects the client's unique personality</p></div></div>
+          <div class="av s3 fu"><i class="fas fa-gem"></i><div><strong>Premium Craft</strong><p>Uncompromising quality in every detail & material</p></div></div>
+          <div class="av s4 fu"><i class="fas fa-clock"></i><div><strong>On-Time Delivery</strong><p>We respect your time as much as your vision</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="patta-border-dark"></div>
+
+<!-- ═══ KPI ═══ -->
+<section id="kpi">
+  <div class="kpi-pat"></div>
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:52px" class="fu">
+      <span class="s-tag">Our Numbers</span>
+      <h2 class="s-title" style="margin-bottom:0">Numbers That <span>Speak</span></h2>
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi-card fu s1">
+        <div class="kpi-ico"><i class="fas fa-building"></i></div>
+        <div class="kpi-num" data-target="320">0</div>
+        <div class="kpi-lbl">Projects Done</div>
+      </div>
+      <div class="kpi-card fu s2">
+        <div class="kpi-ico"><i class="fas fa-smile-beam"></i></div>
+        <div class="kpi-num" data-target="295">0</div>
+        <div class="kpi-lbl">Happy Customers</div>
+      </div>
+      <div class="kpi-card fu s3">
+        <div class="kpi-ico"><i class="fas fa-medal"></i></div>
+        <div class="kpi-num" data-target="12">0</div>
+        <div class="kpi-lbl">Awards Won</div>
+      </div>
+      <div class="kpi-card fu s4">
+        <div class="kpi-ico"><i class="fas fa-users"></i></div>
+        <div class="kpi-num" data-target="48">0</div>
+        <div class="kpi-lbl">Expert Artisans</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="patta-border"></div>
+
+<!-- ═══ PROCESS ═══ -->
+<section id="process">
+  <div class="wrap">
+    <div class="proc-hdr fu">
+      <span class="s-tag">How We Work</span>
+      <h2 class="s-title">Our <span>5-Step</span> Design Process</h2>
+      <div class="s-line c"></div>
+      <p class="s-sub c">From the first conversation to the grand reveal — a seamless, transparent journey crafted around you.</p>
+    </div>
+    <div class="proc-steps">
+      <div class="proc-step fu s1">
+        <div class="step-circ"><div class="step-n">01</div><div class="step-ic"><i class="fas fa-comments"></i></div></div>
+        <h3 class="step-t">Discovery Call</h3>
+        <p class="step-d">We listen deeply to understand your vision, lifestyle, and aspirations.</p>
+      </div>
+      <div class="proc-step fu s2">
+        <div class="step-circ"><div class="step-n">02</div><div class="step-ic"><i class="fas fa-ruler-combined"></i></div></div>
+        <h3 class="step-t">Site Survey</h3>
+        <p class="step-d">Our team visits to measure and assess every inch of your space.</p>
+      </div>
+      <div class="proc-step fu s3">
+        <div class="step-circ"><div class="step-n">03</div><div class="step-ic"><i class="fas fa-pencil-ruler"></i></div></div>
+        <h3 class="step-t">Design Concept</h3>
+        <p class="step-d">Bespoke concept with mood boards, 3D renders & material palette.</p>
+      </div>
+      <div class="proc-step fu s4">
+        <div class="step-circ"><div class="step-n">04</div><div class="step-ic"><i class="fas fa-hammer"></i></div></div>
+        <h3 class="step-t">Execution</h3>
+        <p class="step-d">Skilled artisans bring the design to life with precision and craft.</p>
+      </div>
+      <div class="proc-step fu s5">
+        <div class="step-circ"><div class="step-n">05</div><div class="step-ic"><i class="fas fa-star"></i></div></div>
+        <h3 class="step-t">Handover</h3>
+        <p class="step-d">Walk-through of your transformed space until every detail delights.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="patta-border-dark"></div>
+
+<!-- ═══ SERVICES ═══ -->
+<section id="services">
+  <div class="wrap">
+    <div class="fr">
+      <span class="s-tag">What We Do</span>
+      <h2 class="s-title">Our <span>Services</span></h2>
+      <div class="s-line"></div>
+      <p class="s-sub">From cozy homes to bustling commercial spaces — we design all of them with equal passion and precision.</p>
+    </div>
+    <div class="srv-grid">
+      <div class="srv-card fu s1">
+        <div class="srv-ico"><i class="fas fa-couch"></i></div>
+        <h3 class="srv-name">Home Interiors</h3>
+        <p class="srv-desc">Living rooms, bedrooms, kitchens, and dining spaces transformed into personal sanctuaries that reflect your soul.</p>
+        <span class="srv-tag">Residential</span>
+      </div>
+      <div class="srv-card fu s2">
+        <div class="srv-ico"><i class="fas fa-briefcase"></i></div>
+        <h3 class="srv-name">Office Spaces</h3>
+        <p class="srv-desc">Corporate environments designed to boost productivity, creativity, and team morale with purposeful aesthetics.</p>
+        <span class="srv-tag">Commercial</span>
+      </div>
+      <div class="srv-card fu s3">
+        <div class="srv-ico"><i class="fas fa-coffee"></i></div>
+        <h3 class="srv-name">Cafés & Lounges</h3>
+        <p class="srv-desc">Warm, inviting café interiors that create the perfect ambience for guests to linger and return.</p>
+        <span class="srv-tag">Hospitality</span>
+      </div>
+      <div class="srv-card fu s4">
+        <div class="srv-ico"><i class="fas fa-utensils"></i></div>
+        <h3 class="srv-name">Restaurants</h3>
+        <p class="srv-desc">Dining spaces that elevate the meal experience — from fine dining to casual eateries, we set the mood.</p>
+        <span class="srv-tag">Hospitality</span>
+      </div>
+      <div class="srv-card fu s5">
+        <div class="srv-ico"><i class="fas fa-store"></i></div>
+        <h3 class="srv-name">Retail & Showrooms</h3>
+        <p class="srv-desc">Retail environments strategically designed to guide customers, showcase products, and drive conversions.</p>
+        <span class="srv-tag">Commercial</span>
+      </div>
+      <div class="srv-card fu s6">
+        <div class="srv-ico"><i class="fas fa-hotel"></i></div>
+        <h3 class="srv-name">Boutique Hotels</h3>
+        <p class="srv-desc">Unique hospitality spaces with a story — where every corner becomes a remarkable, immersive experience.</p>
+        <span class="srv-tag">Hospitality</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="patta-border"></div>
+
+<!-- ═══ GALLERY ═══ -->
+<section id="gallery">
+  <div class="wrap">
+    <div class="gal-hdr fu">
+      <span class="s-tag">Our Portfolio</span>
+      <h2 class="s-title">Spaces We've <span>Transformed</span></h2>
+      <div class="s-line c"></div>
+      <p class="s-sub c">Every space tells a story. Here are a few of our favourites.</p>
+    </div>
+    <div class="gal-grid">
+      <div class="g-item">
+        <div class="g-bg g1"><i class="fas fa-couch g-icon-bg"></i></div>
+        <div class="g-label"><div class="g-ltext">Modern Living Room</div></div>
+      </div>
+      <div class="g-item">
+        <div class="g-bg g2"><i class="fas fa-bed g-icon-bg"></i></div>
+        <div class="g-label"><div class="g-ltext">Luxury Bedroom</div></div>
+      </div>
+      <div class="g-item">
+        <div class="g-bg g3"><i class="fas fa-coffee g-icon-bg"></i></div>
+        <div class="g-label"><div class="g-ltext">Café Ambience</div></div>
+      </div>
+      <div class="g-item">
+        <div class="g-bg g4"><i class="fas fa-briefcase g-icon-bg"></i></div>
+        <div class="g-label"><div class="g-ltext">Executive Office</div></div>
+      </div>
+      <div class="g-item">
+        <div class="g-bg g5"><i class="fas fa-utensils g-icon-bg"></i></div>
+        <div class="g-label"><div class="g-ltext">Restaurant Design</div></div>
+      </div>
+      <div class="g-item">
+        <div class="g-bg g6"><i class="fas fa-hotel g-icon-bg"></i></div>
+        <div class="g-label"><div class="g-ltext">Boutique Suite</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="patta-border-dark"></div>
+
+<!-- ═══ TESTIMONIALS ═══ -->
+<section id="testimonials">
+  <div class="wrap">
+    <div class="testi-hdr fu">
+      <span class="s-tag">Client Love</span>
+      <h2 class="s-title">What Our <span>Clients</span> Say</h2>
+      <div class="s-line c"></div>
+    </div>
+  </div>
+  <div class="testi-wrap">
+    <div class="testi-track" id="tt">
+      <!-- 6 cards -->
+      <div class="t-card">
+        <div class="t-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="t-text">"Adwatika transformed our home into a masterpiece. The personal attention they gave us made all the difference — every corner feels intentional and warm."</p>
+        <div class="t-author"><div class="t-av" style="background:var(--yellow)">R</div><div><div class="t-name">Ritika Pattnaik</div><div class="t-role">Home Owner, Bhubaneswar</div></div></div>
+      </div>
+      <div class="t-card">
+        <div class="t-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="t-text">"Our café has become the talk of the town since Adwatika redesigned it. The cultural touches gave us a unique identity that no competitor has."</p>
+        <div class="t-author"><div class="t-av" style="background:var(--terracotta)">A</div><div><div class="t-name">Arjun Sahoo</div><div class="t-role">Café Owner, Cuttack</div></div></div>
+      </div>
+      <div class="t-card">
+        <div class="t-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+        <p class="t-text">"From the first meeting to the final reveal, the team was professional, creative, and genuinely passionate. My office is now inspiring and energising."</p>
+        <div class="t-author"><div class="t-av" style="background:var(--maroon-light)">S</div><div><div class="t-name">Smita Mishra</div><div class="t-role">Architect, Puri</div></div></div>
+      </div>
+      <div class="t-card">
+        <div class="t-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="t-text">"They truly shaped my dream into reality. The Sambalpuri motifs in our restaurant give guests something to marvel at during every visit."</p>
+        <div class="t-author"><div class="t-av" style="background:var(--gold)">D</div><div><div class="t-name">Debabrata Nanda</div><div class="t-role">Restaurant Owner, Rourkela</div></div></div>
+      </div>
+      <div class="t-card">
+        <div class="t-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="t-text">"Exceptional craftsmanship and on-time delivery — rare in this industry. The team understood our brand and the showroom looks absolutely premium."</p>
+        <div class="t-author"><div class="t-av" style="background:var(--terracotta-light)">P</div><div><div class="t-name">Priya Kar</div><div class="t-role">Boutique Owner, Sambalpur</div></div></div>
+      </div>
+      <div class="t-card">
+        <div class="t-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="t-text">"I hired Adwatika for my hotel suites and the results were beyond expectations. Guests constantly compliment the décor — it's elevated our entire brand."</p>
+        <div class="t-author"><div class="t-av" style="background:var(--maroon)">M</div><div><div class="t-name">Mihir Rath</div><div class="t-role">Hotel Director, Konark</div></div></div>
+      </div>
+      <!-- Duplicate for infinite loop -->
+      <div class="t-card">
+        <div class="t-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="t-text">"Adwatika transformed our home into a masterpiece. The personal attention they gave us made all the difference — every corner feels intentional and warm."</p>
+        <div class="t-author"><div class="t-av" style="background:var(--yellow)">R</div><div><div class="t-name">Ritika Pattnaik</div><div class="t-role">Home Owner, Bhubaneswar</div></div></div>
+      </div>
+      <div class="t-card">
+        <div class="t-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="t-text">"Our café has become the talk of the town since Adwatika redesigned it. The cultural touches gave us a unique identity that no competitor has."</p>
+        <div class="t-author"><div class="t-av" style="background:var(--terracotta)">A</div><div><div class="t-name">Arjun Sahoo</div><div class="t-role">Café Owner, Cuttack</div></div></div>
+      </div>
+      <div class="t-card">
+        <div class="t-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+        <p class="t-text">"From the first meeting to the final reveal, the team was professional, creative, and genuinely passionate. My office is now inspiring and energising."</p>
+        <div class="t-author"><div class="t-av" style="background:var(--maroon-light)">S</div><div><div class="t-name">Smita Mishra</div><div class="t-role">Architect, Puri</div></div></div>
+      </div>
+      <div class="t-card">
+        <div class="t-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="t-text">"They truly shaped my dream into reality. The Sambalpuri motifs in our restaurant give guests something to marvel at during every visit."</p>
+        <div class="t-author"><div class="t-av" style="background:var(--gold)">D</div><div><div class="t-name">Debabrata Nanda</div><div class="t-role">Restaurant Owner, Rourkela</div></div></div>
+      </div>
+      <div class="t-card">
+        <div class="t-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="t-text">"Exceptional craftsmanship and on-time delivery — rare in this industry. The team understood our brand and the showroom looks absolutely premium."</p>
+        <div class="t-author"><div class="t-av" style="background:var(--terracotta-light)">P</div><div><div class="t-name">Priya Kar</div><div class="t-role">Boutique Owner, Sambalpur</div></div></div>
+      </div>
+      <div class="t-card">
+        <div class="t-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="t-text">"I hired Adwatika for my hotel suites and the results were beyond expectations. Guests constantly compliment the décor — it's elevated our entire brand."</p>
+        <div class="t-author"><div class="t-av" style="background:var(--maroon)">M</div><div><div class="t-name">Mihir Rath</div><div class="t-role">Hotel Director, Konark</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sambalpuri wave -->
+<div class="wave-div">
+  <svg viewBox="0 0 1440 38" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1440" height="38" fill="#111"/>
+    <path d="M0,19 Q72,4 144,19 Q216,34 288,19 Q360,4 432,19 Q504,34 576,19 Q648,4 720,19 Q792,34 864,19 Q936,4 1008,19 Q1080,34 1152,19 Q1224,4 1296,19 Q1368,34 1440,19" fill="none" stroke="#C4622D" stroke-width="0.9" opacity="0.6"/>
+    <g fill="#D4A017" opacity="0.55">
+      <circle cx="144" cy="19" r="3"/><circle cx="288" cy="19" r="3"/><circle cx="432" cy="19" r="3"/>
+      <circle cx="576" cy="19" r="3"/><circle cx="720" cy="19" r="3"/><circle cx="864" cy="19" r="3"/>
+      <circle cx="1008" cy="19" r="3"/><circle cx="1152" cy="19" r="3"/><circle cx="1296" cy="19" r="3"/>
+    </g>
+  </svg>
+</div>
+
+<!-- ═══ BOOK A SESSION ═══ -->
+<section id="booking">
+  <div class="bk-pat"></div>
+  <div class="wrap bk-inner fu">
+    <span class="s-tag" style="color:rgba(245,197,24,0.55)">Free Consultation</span>
+    <h2 class="bk-title">Book Your Design Session</h2>
+    <p class="bk-sub">Let's talk about your space, your dreams, and how we bring them to life. Book a free 30-minute consultation.</p>
+    <div class="bk-box">
+      <div class="bk-ico">📅</div>
+      <p>Pick a date & time that works for you. Our lead designer will meet with you to understand your vision and craft a personalised plan.</p>
+      <!-- ↓ Replace href with your real Calendly link -->
+      <a href="https://calendly.com/adwatikainterio" target="_blank" class="btn-book">Schedule Free Call</a>
+      <div class="bk-perks">
+        <span>✓ Free of charge</span>
+        <span>✓ No commitment</span>
+        <span>✓ 30 minutes</span>
+        <span>✓ Online or in-studio</span>
+      </div>
+      <p class="bk-note">✦ Replace the Calendly URL with your actual booking link</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand fu">
+      <div class="foot-logo">Adwatika</div>
+      <div class="foot-sub">Interio & Decors</div>
+      <p>Born in the heart of Odisha, shaped by the rich tradition of Pattachitra and Sambalpuri craft — we bring a personal touch to every space.</p>
+      <p class="foot-motto">"Shaping Dreams into Reality, One Space at a Time."</p>
+      <div class="foot-socials">
+        <a href="#" class="soc"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="soc"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="soc"><i class="fab fa-pinterest"></i></a>
+        <a href="#" class="soc"><i class="fab fa-youtube"></i></a>
+        <a href="#" class="soc"><i class="fab fa-houzz"></i></a>
+      </div>
+    </div>
+    <div class="fu">
+      <h4 class="fc-title">Quick Links</h4>
+      <ul class="fc-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#process">Our Process</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Portfolio</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#booking">Book a Session</a></li>
+      </ul>
+    </div>
+    <div class="fu">
+      <h4 class="fc-title">Our Services</h4>
+      <ul class="fc-links">
+        <li><a href="#services">Home Interiors</a></li>
+        <li><a href="#services">Office Design</a></li>
+        <li><a href="#services">Cafés & Lounges</a></li>
+        <li><a href="#services">Restaurants</a></li>
+        <li><a href="#services">Retail Spaces</a></li>
+        <li><a href="#services">Boutique Hotels</a></li>
+      </ul>
+    </div>
+    <div class="fu">
+      <h4 class="fc-title">Contact Us</h4>
+      <div class="fc-contacts">
+        <div class="fcc"><i class="fas fa-map-marker-alt"></i><span>Plot No. 45, Design District,<br/>Bhubaneswar, Odisha – 751001</span></div>
+        <div class="fcc"><i class="fas fa-phone-alt"></i><span>+91 98765 43210</span></div>
+        <div class="fcc"><i class="fas fa-envelope"></i><span>hello@adwatikainterio.com</span></div>
+        <div class="fcc"><i class="fab fa-whatsapp"></i><span>+91 99999 88888</span></div>
+        <div class="fcc"><i class="fas fa-clock"></i><span>Mon – Sat: 9:00 AM – 7:00 PM<br/>Sunday: By Appointment</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="patta-border"></div>
+  <div class="foot-bottom">
+    <p>© 2025 Adwatika Interio & Decors. All rights reserved.</p>
+    <span>Designed with ♥ in Odisha</span>
+  </div>
+</footer>
+
+<script>
+// NAVBAR SCROLL
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60));
+
+// HAMBURGER
+const hbg = document.getElementById('hbg');
+const mm = document.getElementById('mm');
+hbg.addEventListener('click', () => {
+  hbg.classList.toggle('open');
+  mm.classList.toggle('open');
+  document.body.style.overflow = mm.classList.contains('open') ? 'hidden' : '';
+});
+document.querySelectorAll('.mml').forEach(a => a.addEventListener('click', () => {
+  hbg.classList.remove('open'); mm.classList.remove('open'); document.body.style.overflow = '';
+}));
+
+// SCROLL ANIMATIONS
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fu,.fr,.fl').forEach(el => obs.observe(el));
+
+// COUNTER
+const cObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target;
+    const target = +el.dataset.target;
+    let cur = 0; const inc = target / 60;
+    const t = setInterval(() => {
+      cur += inc;
+      if (cur >= target) { el.textContent = target + '+'; clearInterval(t); }
+      else el.textContent = Math.floor(cur) + '+';
+    }, 22);
+    cObs.unobserve(el);
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.kpi-num').forEach(el => cObs.observe(el));
+
+// HERO ENTRANCE
+window.addEventListener('load', () => {
+  document.querySelectorAll('#home .fu').forEach((el, i) => {
+    setTimeout(() => el.classList.add('vis'), 250 + i * 190);
+  });
+});
+</script>
+</body>
+</html>
